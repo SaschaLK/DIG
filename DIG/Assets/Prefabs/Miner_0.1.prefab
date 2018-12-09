@@ -225,9 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightSlider: {fileID: 0}
   leftSlider: {fileID: 0}
-  horizontalMsAmplifier: 1
-  verticalMsAmplifier: 1
-  horizontalToVerticalDevider: 2
+  minimumSpeed: 0.005
+  horizontalMsAmplifier: 5
+  verticalMsAmplifier: 5
+  horizontalToVerticalImpact: 2
   rightPowerSliderInput: 0
   leftPowerSliderInput: 0
 --- !u!212 &212085982547859106

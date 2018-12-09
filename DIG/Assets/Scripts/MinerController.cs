@@ -8,9 +8,10 @@ public class MinerController : MonoBehaviour {
     public Slider rightSlider;
     public Slider leftSlider;
 
+    public float minimumSpeed;
     public float horizontalMsAmplifier;
     public float verticalMsAmplifier;
-    public float horizontalToVerticalDevider;
+    public float horizontalToVerticalImpact;
 
     [HideInInspector]
     public float rightPowerSliderInput;
@@ -31,12 +32,13 @@ public class MinerController : MonoBehaviour {
 
     private void MoveMinerDown() {
         //Get value from horizontal input and use it to determine the vertical speed
-        //verticalMs = (Input.GetAxis("HorizontalRight") / horizontalToVerticalDevider) + (Input.GetAxis("HorizontalLeft") / horizontalToVerticalDevider);
-        verticalMs = (rightPowerSliderInput / horizontalToVerticalDevider) + (leftPowerSliderInput / horizontalToVerticalDevider);
+        verticalMs = (rightPowerSliderInput / horizontalToVerticalImpact) + (leftPowerSliderInput / horizontalToVerticalImpact);
         verticalMs *= Time.deltaTime * verticalMsAmplifier;
 
+        //minimum verticalMs
+        verticalMs += minimumSpeed;
+
         //Get value from horizontal input and use it to determine the horizontal direction
-        //horizontalMs = Input.GetAxis("HorizontalRight") - Input.GetAxis("HorizontalLeft");
         horizontalMs = rightPowerSliderInput - leftPowerSliderInput;
         horizontalMs *= Time.deltaTime * horizontalMsAmplifier;
 
