@@ -7,6 +7,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public static MapGeneratorBehaviour instance;
 
     public GameObject mapTile;
+    public int mapRowTileAmountOdd;
 
     private float mapTileXSize;
     private float mapTileYSize;
@@ -31,7 +32,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     }
 
     private void GetSpriteSize() {
-        //Get Size of Map Tile Sprite for future reference
+        //Get Size of Map Tile Sprite for future reference 
+        //(Set by collider size)
         mapTileXSize = mapTile.GetComponent<BoxCollider2D>().size.x;
         mapTileYSize = mapTile.GetComponent<BoxCollider2D>().size.y;
     }
@@ -42,27 +44,33 @@ public class MapGeneratorBehaviour : MonoBehaviour {
         mapTileLists.Add(mapTilesRowTwo);
         mapTileLists.Add(mapTilesRowThree);
 
-        //Instantiate all 9 Tiles and add each row to one List. 
+        //Instantiate all Tiles and add each row to one List. 
         for (int i = 0; i < 3; i++) {
-            for (int k = 0; k < 3; k++) {
+            for (int k = 0; k < mapRowTileAmountOdd; k++) {
                 mapTileLists[i].Add(Instantiate(mapTile,transform));
+
+                //Set middle Tile as main collider
+                if(k == mapRowTileAmountOdd / 2 + 0.5) {
+                    mapTileLists[i][k].GetComponent<BoxCollider2D>().size = new Vector2(mapTileXSize * mapRowTileAmountOdd, mapTileYSize);
+                }
+                else {
+                    mapTileLists[i][k].GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
         }
     }
 
     private void PositionStartTiles() {
         //Position Each Tile / Row for Start of Game
-        //Positioning on X axes
+        //Positioning on X and Y axes
+        int tempRowKey = 0;
         foreach(List<GameObject> tileList in mapTileLists) {
-            for(int i = -1; i < 2; i++) {
-                tileList[i + 1].transform.position = new Vector3(mapTileXSize * i, 0, 0);
+            int tempTileKey = 0;
+            for (float i = mapRowTileAmountOdd / 2 * -1; i < mapRowTileAmountOdd / 2 + 1; i++) {
+                tileList[tempTileKey].transform.position = new Vector3(mapTileXSize * i, mapTileYSize * -tempRowKey, 0);
+                tempTileKey++;
             }
-        }
-        //Positioning on Y axes
-        for(int i = -1; i < 2; i++) {
-            for(int k = 0; k < 3; k++) {
-                mapTileLists[i+1][k].transform.position = new Vector3(mapTileLists[i+1][k].transform.position.x, mapTileYSize * -i, 0);
-            }
+            tempRowKey++;
         }
     }
 }
