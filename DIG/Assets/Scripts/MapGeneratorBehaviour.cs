@@ -7,14 +7,20 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public static MapGeneratorBehaviour instance;
 
     public GameObject mapTile;
+    public GameObject rowParent;
     public int mapRowTileAmountOdd;
 
     private float mapTileXSize;
     private float mapTileYSize;
     private List<List<GameObject>> mapTileLists = new List<List<GameObject>>();
-    private List<GameObject> mapTilesRowOne = new List<GameObject>();
-    private List<GameObject> mapTilesRowTwo = new List<GameObject>();
-    private List<GameObject> mapTilesRowThree = new List<GameObject>();
+    private List<GameObject> mapTileParents = new List<GameObject>();
+    private List<GameObject> mapTilesRowOneList = new List<GameObject>();
+    private List<GameObject> mapTilesRowTwoList = new List<GameObject>();
+    private List<GameObject> mapTilesRowThreeList = new List<GameObject>();
+    private GameObject mapTileRowParent;
+    private GameObject mapTilesRowOne;
+    private GameObject mapTilesRowTwo;
+    private GameObject mapTilesRowThree;
 
     private void Awake() {
         instance = this;
@@ -27,35 +33,36 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     }
 
     //Method to reposition Maptile after it left vision of Camera
+    //Triggered by MapTile
     public void PositionTileRow() {
         Debug.Log("Positioning");
+
     }
 
     private void GetSpriteSize() {
         //Get Size of Map Tile Sprite for future reference 
         //(Set by collider size)
-        mapTileXSize = mapTile.GetComponent<BoxCollider2D>().size.x;
-        mapTileYSize = mapTile.GetComponent<BoxCollider2D>().size.y;
+        mapTileXSize = rowParent.GetComponent<BoxCollider2D>().size.x;
+        mapTileYSize = rowParent.GetComponent<BoxCollider2D>().size.y;
     }
 
     private void GenerateTileLists() {
-        //Add Lists to the masterList
-        mapTileLists.Add(mapTilesRowOne);
-        mapTileLists.Add(mapTilesRowTwo);
-        mapTileLists.Add(mapTilesRowThree);
+        //Creating and adding parent Objects for the TileRows
+        for(int i = 0; i < 3; i++) {
+            mapTileParents.Add(Instantiate(rowParent, transform));
+            //Setting row collider size
+            mapTileParents[i].GetComponent<BoxCollider2D>().size = new Vector2(mapTileXSize * mapRowTileAmountOdd, mapTileYSize);
+        }
+
+        //Adding Lists to the masterList
+        mapTileLists.Add(mapTilesRowOneList);
+        mapTileLists.Add(mapTilesRowTwoList);
+        mapTileLists.Add(mapTilesRowThreeList);
 
         //Instantiate all Tiles and add each row to one List. 
         for (int i = 0; i < 3; i++) {
             for (int k = 0; k < mapRowTileAmountOdd; k++) {
-                mapTileLists[i].Add(Instantiate(mapTile,transform));
-
-                //Set middle Tile as main collider
-                if(k == mapRowTileAmountOdd / 2 + 0.5) {
-                    mapTileLists[i][k].GetComponent<BoxCollider2D>().size = new Vector2(mapTileXSize * mapRowTileAmountOdd, mapTileYSize);
-                }
-                else {
-                    mapTileLists[i][k].GetComponent<BoxCollider2D>().enabled = false;
-                }
+                mapTileLists[i].Add(Instantiate(mapTile, mapTileParents[i].transform));
             }
         }
     }
