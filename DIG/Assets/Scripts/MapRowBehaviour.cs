@@ -6,6 +6,7 @@ public class MapRowBehaviour : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         MapGeneratorBehaviour.instance.PositionTileRow(transform);
+        MapGeneratorBehaviour.instance.PositionOres(transform);
     }
 
 }

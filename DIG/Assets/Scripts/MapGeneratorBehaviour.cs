@@ -106,4 +106,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             tempOreTypeIndex++;
         }
     }
+
+    public void PositionOres(Transform rowTransform) {
+        Debug.Log("position");
+    }
 }

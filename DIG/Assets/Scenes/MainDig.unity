@@ -847,6 +847,15 @@ Prefab:
       propertyPath: leftSlider
       value: 
       objectReference: {fileID: 1109786723}
+    - target: {fileID: 1392915022643860, guid: fd8eb4cd1563a744687055b9adec737f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50618312480011904, guid: fd8eb4cd1563a744687055b9adec737f,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8eb4cd1563a744687055b9adec737f, type: 2}
   m_IsPrefabAsset: 0

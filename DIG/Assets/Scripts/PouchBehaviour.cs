@@ -16,7 +16,8 @@ public class PouchBehaviour : MonoBehaviour {
     public void AddOre(string oreTag) {
         switch (oreTag) {
             case "Iron":
-                Debug.Log("iron gesammelt");
+                break;
+            case "Gold":
                 break;
         }
     }
