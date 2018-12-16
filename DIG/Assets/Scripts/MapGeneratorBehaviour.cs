@@ -6,6 +6,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
 
     public static MapGeneratorBehaviour instance;
 
+    public Transform playerTransform;
+
     public GameObject mapTile;
     public GameObject rowParent;
     public int mapRowTileAmountOdd;
@@ -22,6 +24,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     private GameObject mapTilesRowTwo;
     private GameObject mapTilesRowThree;
 
+    private int lowestPositionY = 0;
+
     private void Awake() {
         instance = this;
     }
@@ -33,10 +37,11 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     }
 
     //Method to reposition Maptile after it left vision of Camera
-    //Triggered by MapTile
-    public void PositionTileRow() {
-        Debug.Log("Positioning");
-
+    //Triggered by MapRow
+    public void PositionTileRow(Transform rowTransform) {
+        //TO-DO PLAYER CAN EXIT MAP IF HE GOES INTO ONE DIRECTION FOR LONG ENOUGH!
+        rowTransform.position = new Vector3(playerTransform.position.x, lowestPositionY * mapTileYSize, 0);
+        lowestPositionY--;
     }
 
     private void GetSpriteSize() {
@@ -54,6 +59,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             mapTileParents[i].GetComponent<BoxCollider2D>().size = new Vector2(mapTileXSize * mapRowTileAmountOdd, mapTileYSize);
             //Setting parent position
             mapTileParents[i].transform.position = new Vector3(0, mapTileYSize * -i, 0);
+
+            lowestPositionY--;
         }
 
         //Adding Lists to the masterList

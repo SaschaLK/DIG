@@ -20,14 +20,22 @@ public class MinerController : MonoBehaviour {
 
     private float verticalMs;
     private float horizontalMs;
+    private float gasConsumption;
 
     private void Start() {
-        rightSlider.onValueChanged.AddListener(delegate { SetRightPower(rightSlider.value); });
-        leftSlider.onValueChanged.AddListener(delegate { SetLeftPower(leftSlider.value); });
+        rightSlider.onValueChanged.AddListener(delegate { SetRightPower(rightSlider.value);
+            gasConsumption = (rightSlider.value + leftSlider.value) / 100;
+        });
+        leftSlider.onValueChanged.AddListener(delegate { SetLeftPower(leftSlider.value);
+            gasConsumption = (rightSlider.value + leftSlider.value) / 100;
+        });
     }
 
     private void Update() {
         MoveMinerDown();
+        if(gasConsumption != 0) {
+            ConsumeGas();
+        }
     }
 
     private void MoveMinerDown() {
@@ -43,6 +51,10 @@ public class MinerController : MonoBehaviour {
         horizontalMs *= Time.deltaTime * horizontalMsAmplifier;
 
         transform.Translate(horizontalMs, -verticalMs, 0);
+    }
+
+    private void ConsumeGas() {
+        GasBehaviour.instance.gasComsumptionRate = gasConsumption;
     }
 
     public void SetRightPower(float power) {
