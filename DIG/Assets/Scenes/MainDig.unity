@@ -368,6 +368,10 @@ MonoBehaviour:
   mapTile: {fileID: 1760289428721438, guid: dea5fdc918b78084cb26314b83d4366c, type: 2}
   rowParent: {fileID: 1841083240414500, guid: c1b9b5aa21c4f0d47aa7d4b2d20ab0bd, type: 2}
   mapRowTileAmountOdd: 17
+  oreCacheAmount: 20
+  oreTypes:
+  - {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f, type: 2}
+  - {fileID: 1164391883308290, guid: aae02e3088f5cd64b8d624c15ae91bae, type: 2}
 --- !u!224 &1109786722 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224219198495165568, guid: 33f566c75825da6459458d85c41dfac9,
@@ -508,6 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242779396}
   - component: {fileID: 1242779397}
+  - component: {fileID: 1242779398}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -543,6 +548,18 @@ MonoBehaviour:
   powerSliders:
   - {fileID: 1109786723}
   - {fileID: 1151560659}
+--- !u!114 &1242779398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242779395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a78563ae45ca704887f5a28c64a4ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ironOreCount: 0
 --- !u!224 &1439470101 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224177571798353442, guid: 5d5747828d8194c4eade99251ba85ff5,

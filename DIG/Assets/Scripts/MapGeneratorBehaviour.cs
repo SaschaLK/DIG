@@ -23,8 +23,11 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     private GameObject mapTilesRowOne;
     private GameObject mapTilesRowTwo;
     private GameObject mapTilesRowThree;
-
     private int lowestPositionY = 0;
+
+    public int oreCacheAmount;
+    public List<GameObject> oreTypes = new List<GameObject>();
+    private List<List<GameObject>> oreLists = new List<List<GameObject>>();
 
     private void Awake() {
         instance = this;
@@ -34,6 +37,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
         GetSpriteSize();
         GenerateTileLists();
         PositionStartTiles();
+        GenerateOreLists();
     }
 
     //Method to reposition Maptile after it left vision of Camera
@@ -87,6 +91,19 @@ public class MapGeneratorBehaviour : MonoBehaviour {
                 tempTileKey++;
             }
             tempRowKey++;
+        }
+    }
+
+    private void GenerateOreLists() {
+        foreach(GameObject oreType in oreTypes) {
+            oreLists.Add(new List<GameObject>());
+        }
+        int tempOreTypeIndex = 0;
+        foreach(List<GameObject> oreList in oreLists) {
+            for (int i = 0; i < oreCacheAmount; i++) {
+                oreList.Add(Instantiate(oreTypes[tempOreTypeIndex], transform));
+            }
+            tempOreTypeIndex++;
         }
     }
 }

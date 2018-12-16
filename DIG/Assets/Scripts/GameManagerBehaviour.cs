@@ -18,7 +18,6 @@ public class GameManagerBehaviour : MonoBehaviour {
     private void Start() {
         foreach(Slider slider in powerSliders) {
             slider.gameObject.SetActive(false);
-            //slider.interactable = false;
         }
         MinerController.instance.isDigging = false;
     }
@@ -39,8 +38,6 @@ public class GameManagerBehaviour : MonoBehaviour {
     private void ChangeSliderInteractable() {
         foreach(Slider slider in powerSliders) {
             slider.gameObject.SetActive(!slider.gameObject.activeSelf);
-            //slider.enabled = !slider.enabled;
-            //slider.interactable = !slider.interactable;
         }
     }
 }
