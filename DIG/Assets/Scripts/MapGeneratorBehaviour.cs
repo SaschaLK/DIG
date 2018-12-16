@@ -52,6 +52,8 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             mapTileParents.Add(Instantiate(rowParent, transform));
             //Setting row collider size
             mapTileParents[i].GetComponent<BoxCollider2D>().size = new Vector2(mapTileXSize * mapRowTileAmountOdd, mapTileYSize);
+            //Setting parent position
+            mapTileParents[i].transform.position = new Vector3(0, mapTileYSize * -i, 0);
         }
 
         //Adding Lists to the masterList
