@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MinerController : MonoBehaviour {
 
+    public static MinerController instance;
+    
     public Slider rightSlider;
     public Slider leftSlider;
 
@@ -14,6 +16,8 @@ public class MinerController : MonoBehaviour {
     public float horizontalToVerticalImpact;
 
     [HideInInspector]
+    public bool isDigging;
+    [HideInInspector]
     public float rightPowerSliderInput;
     [HideInInspector]
     public float leftPowerSliderInput;
@@ -21,6 +25,10 @@ public class MinerController : MonoBehaviour {
     private float verticalMs;
     private float horizontalMs;
     private float gasConsumption;
+
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start() {
         rightSlider.onValueChanged.AddListener(delegate { SetRightPower(rightSlider.value);
@@ -32,7 +40,9 @@ public class MinerController : MonoBehaviour {
     }
 
     private void Update() {
-        MoveMinerDown();
+        if (isDigging) {
+            MoveMinerDown();
+        }
         if(gasConsumption != 0) {
             ConsumeGas();
         }
