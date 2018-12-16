@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4961161373490788}
   - component: {fileID: 61958266575419336}
   - component: {fileID: 50513712786939968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MinerItemCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4987556547647644}
   - component: {fileID: 61668740719109060}
   - component: {fileID: 50618312480011904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MinerMapCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4528302, g: 0.2974105, b: 0.1986472, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
