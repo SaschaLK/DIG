@@ -19,17 +19,20 @@ public class GameManagerBehaviour : MonoBehaviour {
         foreach(Slider slider in powerSliders) {
             slider.gameObject.SetActive(false);
         }
+        GasBehaviour.instance.isDigging = false;
         MinerController.instance.isDigging = false;
     }
 
     public void StartDig() {
         ChangeSliderInteractable();
         shopPanel.SetActive(false);
+        GasBehaviour.instance.isDigging = true;
         MinerController.instance.isDigging = true;
     }
 
     public void EmptyGas() {
         ChangeSliderInteractable();
+        GasBehaviour.instance.isDigging = false;
         MinerController.instance.isDigging = false;
         shopPanel.SetActive(true);
         SceneManager.LoadScene("MainDig");

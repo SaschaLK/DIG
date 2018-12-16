@@ -11,6 +11,8 @@ public class GasBehaviour : MonoBehaviour {
 
     [HideInInspector]
     public float gasComsumptionRate;
+    [HideInInspector]
+    public bool isDigging;
 
     private Slider slider;
 
@@ -23,9 +25,11 @@ public class GasBehaviour : MonoBehaviour {
     }
 
     private void Update() {
-        slider.value -= Time.deltaTime * (baseGasConsumptionRate + gasComsumptionRate);
-        if(slider.value <= 0) {
-            GameManagerBehaviour.instance.EmptyGas();
+        if (isDigging) {
+            slider.value -= Time.deltaTime * (baseGasConsumptionRate + gasComsumptionRate);
+            if(slider.value <= 0) {
+                GameManagerBehaviour.instance.EmptyGas();
+            }
         }
     }
 }
