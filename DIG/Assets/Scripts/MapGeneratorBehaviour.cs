@@ -145,7 +145,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             Vector2 startNode = new Vector2(-rowSize.x / 2, mapRow.transform.position.y + (rowSize.y / 2));
             for(int i = 0; i < oreDensity.x; i++) {
                 for(int k = 0; k < oreDensity.y; k++) {
-                    oreLists[0][tempOreIndex].transform.position = new Vector3(startNode.x + (k * oreSpacing.x), startNode.y - (i * oreSpacing.y), oreLists[0][tempOreIndex].transform.position.z);
+                    oreLists[0][tempOreIndex].transform.position = new Vector3(startNode.x + (k * oreSpacing.x), startNode.y - (i * oreSpacing.y), oreTypes[0].transform.position.z);
                     tempOreIndex++;
                 }
             }
