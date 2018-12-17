@@ -449,7 +449,10 @@ MonoBehaviour:
   mapTile: {fileID: 1760289428721438, guid: dea5fdc918b78084cb26314b83d4366c, type: 2}
   rowParent: {fileID: 1841083240414500, guid: c1b9b5aa21c4f0d47aa7d4b2d20ab0bd, type: 2}
   mapRowTileAmountOdd: 17
-  oreCacheAmount: 20
+  oreDensity: {x: 10, y: 10}
+  oreMapAmount: 20
+  spawnChance: 0.5
+  oreCacheAmount: 200
   oreTypes:
   - {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f, type: 2}
   - {fileID: 1164391883308290, guid: aae02e3088f5cd64b8d624c15ae91bae, type: 2}
