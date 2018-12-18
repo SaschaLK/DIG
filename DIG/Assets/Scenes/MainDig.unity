@@ -451,11 +451,9 @@ MonoBehaviour:
   mapRowTileAmountOdd: 17
   oreDensity: {x: 10, y: 10}
   oreMapAmount: 20
-  spawnChance: 0.5
-  oreCacheAmount: 200
+  spawnChance: 1
   oreTypes:
   - {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f, type: 2}
-  - {fileID: 1164391883308290, guid: aae02e3088f5cd64b8d624c15ae91bae, type: 2}
 --- !u!1 &906436356
 GameObject:
   m_ObjectHideFlags: 0

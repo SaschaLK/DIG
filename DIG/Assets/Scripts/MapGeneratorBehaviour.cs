@@ -36,9 +36,9 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     private Vector2 oreSpacing;
 
     //Generating ore Type Lists and amount of ores;
-    public int oreCacheAmount;
     public List<GameObject> oreTypes = new List<GameObject>();
-    private List<List<GameObject>> oreLists = new List<List<GameObject>>();
+    private List<List<GameObject>> oreTypeLists = new List<List<GameObject>>();
+    private Dictionary<GameObject, List<List<GameObject>>> oreListsPerRows = new Dictionary<GameObject, List<List<GameObject>>>();
 
     private void Awake() {
         instance = this;
@@ -105,15 +105,31 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     }
 
     private void GenerateOreLists() {
+        //List for all types of ores in game:
         foreach(GameObject oreType in oreTypes) {
-            oreLists.Add(new List<GameObject>());
+            oreTypeLists.Add(new List<GameObject>());
         }
-        int tempOreTypeIndex = 0;
-        foreach(List<GameObject> oreList in oreLists) {
-            for (int i = 0; i < oreCacheAmount; i++) {
-                oreList.Add(Instantiate(oreTypes[tempOreTypeIndex], transform));
+
+        //Adding rowOBJECTS!!!! to dictionary
+        for(int i = 0; i < 3; i++) {
+            oreListsPerRows.Add(mapTileParents[i], new List<List<GameObject>>());
+        }
+
+        //Adding oreLists to rowOBJECTS; Each Row has it's own oreLists and own oreObjects, assigned and sorted by dictionary.
+        foreach (KeyValuePair<GameObject, List<List<GameObject>>> row in oreListsPerRows) {
+            //Adding oreLists to each rowOBJECT
+            foreach (GameObject oreType in oreTypes) {
+                row.Value.Add(new List<GameObject>());
             }
-            tempOreTypeIndex++;
+
+            //Adding ores to each oreList in each row
+            int tempOreTypeIndex = 0;
+            foreach (List<GameObject> oreList in row.Value) {
+                for (int i = 0; i < oreDensity.x * oreDensity.y; i++) {
+                    oreList.Add(Instantiate(oreTypes[tempOreTypeIndex], transform));
+                }
+                tempOreTypeIndex++;
+            }
         }
     }
 
@@ -137,16 +153,22 @@ public class MapGeneratorBehaviour : MonoBehaviour {
         }
     }
 
-    //TO DO, EACH ROW OF MAP HAS TO HAVE IT'S OWN ORES AND ORE NOISE MAP
     //Place one image on each row of map; Fill each true node with one ore
     private void PositionStartOres() {
-        int tempOreIndex = 0;
-        foreach(GameObject mapRow in mapTileParents) {
-            Vector2 startNode = new Vector2(-rowSize.x / 2, mapRow.transform.position.y + (rowSize.y / 2));
-            for(int i = 0; i < oreDensity.x; i++) {
-                for(int k = 0; k < oreDensity.y; k++) {
-                    oreLists[0][tempOreIndex].transform.position = new Vector3(startNode.x + (k * oreSpacing.x), startNode.y - (i * oreSpacing.y), oreTypes[0].transform.position.z);
-                    tempOreIndex++;
+        foreach (KeyValuePair<GameObject, List<List<GameObject>>> listOfOreListsInEachRow in oreListsPerRows) {
+            foreach(List<GameObject> oreList in listOfOreListsInEachRow.Value) {
+                //oreList of specific tileRow
+                Vector2 tempStartNode = new Vector2(listOfOreListsInEachRow.Key.transform.position.x - rowSize.x / 2, listOfOreListsInEachRow.Key.transform.position.y + rowSize.y / 2);
+                int tempOreIndex = 0;
+                int tempNoiseMapSelectIndex = Random.Range(0, oreMaps.Count - 1);
+                for (int i = 0; i < oreDensity.x; i++) {
+                    for (int k = 0; k < oreDensity.y; k++) {
+                        if (oreMaps[tempNoiseMapSelectIndex][i, k]) {
+                            oreList[tempOreIndex].transform.position = new Vector3(tempStartNode.x + (i * oreSpacing.x), tempStartNode.y - (k * oreSpacing.y), -1);
+                            oreList[tempOreIndex].SetActive(true);
+                        }
+                        tempOreIndex++;
+                    }
                 }
             }
         }

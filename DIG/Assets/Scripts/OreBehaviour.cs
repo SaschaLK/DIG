@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class OreBehaviour : MonoBehaviour {
 
+    private void Awake() {
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         PouchBehaviour.instance.AddOre(tag);
         gameObject.SetActive(false);
