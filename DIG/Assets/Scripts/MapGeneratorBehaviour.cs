@@ -51,10 +51,6 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     }
 
     private void Start() {
-        //temp function for presention; TO DO, ACTUAL SINGELTON IMPLEMENTATION.
-        GameManagerBehaviour.instance.LoadShit();
-
-
         //Generate Background Tiles, Parents and Lists of Background Tiles. Position them.
         GetSpriteSize();
         GenerateTileLists();
