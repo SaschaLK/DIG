@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61895477494309294}
   - component: {fileID: 114298740564026188}
   m_Layer: 9
-  m_Name: GoldOre
+  m_Name: Oil
   m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
