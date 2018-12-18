@@ -1018,6 +1018,7 @@ MonoBehaviour:
   - {fileID: 673535997}
   - {fileID: 1151560659}
   ironPouchValue: {fileID: 1810838569}
+  ironOreCount: 0
 --- !u!1 &1299145587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1604,7 @@ GameObject:
   - component: {fileID: 750721963}
   - component: {fileID: 1810838570}
   - component: {fileID: 1810838569}
+  - component: {fileID: 1810838571}
   m_Layer: 5
   m_Name: Iron
   m_TagString: Untagged
@@ -1654,6 +1656,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 1364840698}
   m_GameObject: {fileID: 1810838568}
   m_CullTransparentMesh: 0
+--- !u!114 &1810838571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810838568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdca46069f400ec468f0618f73387c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1846231236
 GameObject:
   m_ObjectHideFlags: 0
