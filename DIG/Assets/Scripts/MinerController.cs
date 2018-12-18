@@ -37,10 +37,6 @@ public class MinerController : MonoBehaviour {
         leftSlider.onValueChanged.AddListener(delegate { SetLeftPower(leftSlider.value);
             gasConsumption = (rightSlider.value + leftSlider.value) / 100;
         });
-
-
-        //temp function for presention; TO DO, ACTUAL SINGELTON IMPLEMENTATION.
-        GameManagerBehaviour.instance.LoadShit();
     }
 
     private void Update() {

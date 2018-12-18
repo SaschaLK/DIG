@@ -1,3 +1,2 @@
 # DIG
-Small mobile game project.
-
+Small mobile game project with friends.

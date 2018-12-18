@@ -9,8 +9,7 @@ public class OreBehaviour : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        GameManagerBehaviour.instance.AddOre(tag);
-        //PouchBehaviour.instance.AddOre(tag);
+        PouchBehaviour.instance.AddOre(tag);
         gameObject.SetActive(false);
     }
 }
