@@ -10,7 +10,6 @@ public class GameManagerBehaviour : MonoBehaviour {
 
     public GameObject shopPanel;
     public Slider[] powerSliders;
-    public Slider tempGasSlider;
 
     private void Awake() {
         if(instance == null) {
@@ -62,7 +61,6 @@ public class GameManagerBehaviour : MonoBehaviour {
             powerSliders[1] = GameObject.Find("RightPower").GetComponent<Slider>();
             ironPouchValue = GameObject.Find("Iron").GetComponent<Text>();
         }
-        tempGasSlider.value = 1;
     }
 
 
