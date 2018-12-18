@@ -449,11 +449,12 @@ MonoBehaviour:
   mapTile: {fileID: 1760289428721438, guid: dea5fdc918b78084cb26314b83d4366c, type: 2}
   rowParent: {fileID: 1841083240414500, guid: c1b9b5aa21c4f0d47aa7d4b2d20ab0bd, type: 2}
   mapRowTileAmountOdd: 17
-  oreDensity: {x: 10, y: 10}
+  oreDensity: {x: 30, y: 30}
   oreMapAmount: 20
-  spawnChance: 1
+  spawnChance: 0.2
   oreTypes:
   - {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f, type: 2}
+  minimumOreDepth: 0
 --- !u!1 &906436356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1098,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4662823380205088, guid: fd8eb4cd1563a744687055b9adec737f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4662823380205088, guid: fd8eb4cd1563a744687055b9adec737f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1283,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2055562172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1338,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 2055562171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.4, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4

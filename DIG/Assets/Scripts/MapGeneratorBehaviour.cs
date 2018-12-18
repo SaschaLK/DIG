@@ -37,6 +37,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
 
     //Generating ore Type Lists and amount of ores;
     public List<GameObject> oreTypes = new List<GameObject>();
+    public float minimumOreDepth;
     private List<List<GameObject>> oreTypeLists = new List<List<GameObject>>();
     private Dictionary<GameObject, List<List<GameObject>>> oreListsPerRows = new Dictionary<GameObject, List<List<GameObject>>>();
 
@@ -159,8 +160,20 @@ public class MapGeneratorBehaviour : MonoBehaviour {
 
     //Place one image on each row of map; Fill each true node with one ore
     private void PositionStartOres() {
+        bool firstLayer = true;
         foreach (KeyValuePair<GameObject, List<List<GameObject>>> listOfOreListsInEachRow in oreListsPerRows) {
             MoveOres(listOfOreListsInEachRow.Key, listOfOreListsInEachRow.Key.transform);
+            if(firstLayer) {
+                //Disable below threshold for surface layer at begin of game
+                foreach(List<GameObject> oreList in listOfOreListsInEachRow.Value) {
+                    foreach(GameObject ore in oreList) {
+                        if(ore.transform.position.y > minimumOreDepth) {
+                            ore.SetActive(false);
+                        }
+                    }
+                }
+            }
+            firstLayer = false;
         }
     }
 
