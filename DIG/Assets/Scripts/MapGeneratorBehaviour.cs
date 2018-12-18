@@ -177,7 +177,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     //Method to reposition Maptile after it left vision of Camera
     //Triggered by MapRow
     public void PositionTileRow(Transform rowTransform) {
-        //TO-DO PLAYER CAN EXIT MAP IF HE GOES INTO ONE DIRECTION FOR LONG ENOUGH!
+        //TO-DO (BUG) PLAYER CAN EXIT MAP IF HE GOES INTO ONE DIRECTION FOR LONG ENOUGH!
         rowTransform.position = new Vector3(playerTransform.position.x, lowestPositionY * mapTileYSize, 0);
         lowestPositionY--;
     }
