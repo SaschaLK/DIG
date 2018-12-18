@@ -38,6 +38,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     //Generating ore Type Lists and amount of ores;
     public List<GameObject> oreTypes = new List<GameObject>();
     public float minimumOreDepth;
+    public Vector2 oreJiggleField;
     private List<List<GameObject>> oreTypeLists = new List<List<GameObject>>();
     private Dictionary<GameObject, List<List<GameObject>>> oreListsPerRows = new Dictionary<GameObject, List<List<GameObject>>>();
 
@@ -212,7 +213,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             for(int i = 0; i < oreDensity.x; i++) {
                 for(int k = 0; k < oreDensity.y; k++) {
                     if (oreMaps[tempNoiseMapSelectIndex][i, k]) {
-                        oreList[tempOreIndex].transform.position = new Vector3(tempStartNode.x + (i * oreSpacing.x), tempStartNode.y - (k * oreSpacing.y), -1);
+                        oreList[tempOreIndex].transform.position = new Vector3(tempStartNode.x + (i * oreSpacing.x) + (oreJiggleField.x * Random.Range(-1, 1)), tempStartNode.y - (k * oreSpacing.y) + (oreJiggleField.y * Random.Range(-1, 1)), -1);
                         oreList[tempOreIndex].SetActive(true);
                     }
                     tempOreIndex++;
