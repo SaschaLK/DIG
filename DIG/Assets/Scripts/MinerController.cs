@@ -27,7 +27,13 @@ public class MinerController : MonoBehaviour {
     private float gasConsumption;
 
     private void Awake() {
-        instance = this;
+        if (instance == null) {
+            instance = this;
+        }
+        else if (instance != this) {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start() {
@@ -39,8 +45,7 @@ public class MinerController : MonoBehaviour {
         });
 
 
-        //temp function for presention; TO DO, ACTUAL SINGELTON IMPLEMENTATION.
-        GameManagerBehaviour.instance.LoadShit();
+
     }
 
     private void Update() {

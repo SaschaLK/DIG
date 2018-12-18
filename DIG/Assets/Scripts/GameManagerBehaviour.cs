@@ -63,6 +63,7 @@ public class GameManagerBehaviour : MonoBehaviour {
             ironPouchValue = GameObject.Find("Iron").GetComponent<Text>();
         }
         tempGasSlider.value = 1;
+        MinerController.instance.gameObject.transform.position = new Vector3(0, 1, -5);
     }
 
 
