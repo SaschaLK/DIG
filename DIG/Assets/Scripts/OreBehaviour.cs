@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OreBehaviour : MonoBehaviour {
 
+    public float rarity;
+
     private void Awake() {
         gameObject.SetActive(false);
     }

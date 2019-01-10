@@ -9,11 +9,25 @@ public class PouchBehaviour : MonoBehaviour {
     [HideInInspector]
     public int ironOreCount;
 
+    private List<string> oreTypeNames = new List<string>();
+
     private void Awake() {
         instance = this;
     }
 
+    private void Start() {
+        //Get List of all types of ores.
+        foreach(GameObject oreType in MapGeneratorBehaviour.instance.oreTypes) {
+            oreTypeNames.Add(oreType.name);
+        }
+
+        
+    }
+
     public void AddOre(string oreTag) {
+
+
+
         switch (oreTag) {
             case "Iron":
                 break;

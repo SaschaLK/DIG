@@ -21,6 +21,7 @@ public class GameManagerBehaviour : MonoBehaviour {
         }
         GasBehaviour.instance.isDigging = false;
         MinerController.instance.isDigging = false;
+
     }
 
     public void StartDig() {
