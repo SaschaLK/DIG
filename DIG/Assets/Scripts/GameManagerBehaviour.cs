@@ -32,10 +32,6 @@ public class GameManagerBehaviour : MonoBehaviour {
     }
 
     public void EmptyGas() {
-        ChangeSliderInteractable();
-        GasBehaviour.instance.isDigging = false;
-        MinerController.instance.isDigging = false;
-        shopPanel.SetActive(true);
         SceneManager.LoadScene("MainDig");
     }
 

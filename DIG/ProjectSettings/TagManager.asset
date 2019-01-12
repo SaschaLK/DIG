@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Iron
   - Gold
-  - Pouch
+  - OreStoreTextValue
   layers:
   - Default
   - TransparentFX
