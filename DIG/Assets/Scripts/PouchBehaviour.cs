@@ -13,6 +13,10 @@ public class PouchBehaviour : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+        if(GameObject.FindGameObjectsWithTag("Pouch").Length > 1) {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(instance);
     }
 
     private void Start() {
@@ -20,14 +24,9 @@ public class PouchBehaviour : MonoBehaviour {
         foreach(GameObject oreType in MapGeneratorBehaviour.instance.oreTypes) {
             oreTypeNames.Add(oreType.name);
         }
-
-        
     }
 
     public void AddOre(string oreTag) {
-
-
-
         switch (oreTag) {
             case "Iron":
                 break;

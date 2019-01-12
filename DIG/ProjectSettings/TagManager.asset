@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Iron
   - Gold
+  - Pouch
   layers:
   - Default
   - TransparentFX
