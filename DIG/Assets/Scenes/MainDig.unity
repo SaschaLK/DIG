@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 232792822}
   m_Layer: 0
   m_Name: Pouch
-  m_TagString: Untagged
+  m_TagString: Pouch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78563ae45ca704887f5a28c64a4ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oreValueText: {fileID: 0}
+  oreValueText: {fileID: 268977144}
   ironOreCount: 0
 --- !u!4 &232792821
 Transform:
