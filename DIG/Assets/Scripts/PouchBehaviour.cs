@@ -10,8 +10,7 @@ public class PouchBehaviour : MonoBehaviour {
 
     public GameObject oreValueText;
 
-    [HideInInspector]
-    public int ironOreCount;
+    private int ironOreCount;
     private List<string> oreTypeNames = new List<string>();
 
     private void Awake() {
@@ -19,6 +18,8 @@ public class PouchBehaviour : MonoBehaviour {
     }
 
     private void Start() {
+        ironOreCount = PlayerPrefs.GetInt("Iron");
+
         //Setting ore Text Value for Store on Scene Load; including game loop.
         SceneManager.sceneLoaded += RefreshOreText;
         SetOreText();
@@ -30,6 +31,7 @@ public class PouchBehaviour : MonoBehaviour {
     }
 
     private void RefreshOreText(Scene scene, LoadSceneMode mode) {
+        Debug.Log(ironOreCount);
         SetOreText();
     }
 
@@ -37,6 +39,7 @@ public class PouchBehaviour : MonoBehaviour {
         switch (oreTag) {
             case "Iron":
                 ironOreCount++;
+                Debug.Log(ironOreCount);
                 break;
             case "Gold":
                 break;
@@ -46,6 +49,7 @@ public class PouchBehaviour : MonoBehaviour {
     private void SetOreText() {
         oreValueText = GameObject.FindGameObjectWithTag("OreStoreTextValue");
 
+        PlayerPrefs.SetInt("Iron", ironOreCount);
         oreValueText.GetComponent<Text>().text = "Iron Ore: " + ironOreCount.ToString();
     }
 }

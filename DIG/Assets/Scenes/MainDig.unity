@@ -211,7 +211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 232792821}
   - component: {fileID: 232792820}
-  - component: {fileID: 232792822}
   m_Layer: 0
   m_Name: Pouch
   m_TagString: Pouch
@@ -232,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oreValueText: {fileID: 268977144}
-  ironOreCount: 0
 --- !u!4 &232792821
 Transform:
   m_ObjectHideFlags: 0
@@ -247,18 +245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &232792822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232792819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9cbc32770a3c4438174c6f6e05db17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &268977144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1094,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.207
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

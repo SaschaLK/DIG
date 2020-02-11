@@ -61,8 +61,8 @@ public class MinerController : MonoBehaviour {
         //Get value from horizontal input and use it to determine the horizontal direction
         horizontalMs = rightPowerSliderInput - leftPowerSliderInput;
         horizontalMs *= Time.deltaTime * horizontalMsAmplifier;
+        //Rotate the sprite direction depending on input
         minerSprite.rotation = new Quaternion(0, 0, horizontalMs*10, 1);
-        Debug.Log(horizontalMs * 10);
 
         transform.Translate(horizontalMs, -verticalMs, 0);
     }
