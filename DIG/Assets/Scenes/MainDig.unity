@@ -279,10 +279,10 @@ RectTransform:
   m_Father: {fileID: 1572488542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0543545, y: 0.846}
-  m_AnchorMax: {x: 0.578, y: 0.93200004}
+  m_AnchorMin: {x: 0.0543545, y: 0.3922588}
+  m_AnchorMax: {x: 0.74841285, y: 0.93200004}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 2}
+  m_SizeDelta: {x: -0.000061035, y: 2.0001}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &268977146
 MonoBehaviour:
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 52
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -602,7 +602,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632419589}
-  - component: {fileID: 632419590}
   - component: {fileID: 632419592}
   - component: {fileID: 632419591}
   m_Layer: 0
@@ -620,35 +619,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632419588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -18, z: 5}
+  m_LocalPosition: {x: 0, y: -14, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &632419590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632419588}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70307d11ecaf489479b74185249ddddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1195957426}
-  mapTile: {fileID: 1760289428721438, guid: dea5fdc918b78084cb26314b83d4366c, type: 3}
-  rowParent: {fileID: 1841083240414500, guid: c1b9b5aa21c4f0d47aa7d4b2d20ab0bd, type: 3}
-  mapRowTileAmountOdd: 17
-  oreDensity: {x: 30, y: 30}
-  oreMapAmount: 20
-  spawnChance: 0.2
-  oreTypes:
-  - {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f, type: 3}
-  minimumOreDepth: -1
-  oreJiggleField: {x: 10, y: 12}
 --- !u!61 &632419591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -693,9 +669,14 @@ MonoBehaviour:
   ores:
   - oreObject: {fileID: 1618817832085412, guid: 766dbe45393d97143a39e802ef84519f,
       type: 3}
-    rarity: 1
-    minDepth: 5
-    maxDepth: 999
+    rarity: 0.5
+    minDepth: -1
+    maxDepth: -999
+  - oreObject: {fileID: 5258532384615808814, guid: aefaf0a10a2aa794383d271fe23e39d2,
+      type: 3}
+    rarity: 0.3
+    minDepth: -50
+    maxDepth: -999
 --- !u!1 &906436356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1124,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.207
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
