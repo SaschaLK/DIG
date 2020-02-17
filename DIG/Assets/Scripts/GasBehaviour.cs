@@ -32,4 +32,8 @@ public class GasBehaviour : MonoBehaviour {
             }
         }
     }
+
+    public void ChangeGas(float gasChange) {
+        slider.value += gasChange;
+    }
 }

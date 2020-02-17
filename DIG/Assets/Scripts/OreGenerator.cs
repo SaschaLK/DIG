@@ -18,7 +18,7 @@ public class OreGenerator : MonoBehaviour {
     }
 
     private void Start() {
-        for(int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
             Instantiate(ores[0].oreObject, new Vector3(transform.position.x + Random.Range(xSpawnRange.x, xSpawnRange.y), Random.Range(-1f, -10f)), Quaternion.identity);
         }
     }
@@ -32,7 +32,7 @@ public class OreGenerator : MonoBehaviour {
     private void SpawnOres() {
         foreach(Ore ore in ores) {
             if(player.transform.position.y < ore.minDepth && player.transform.position.y > ore.maxDepth) {
-                for(float i = 0; i > player.transform.position.y * ore.rarity; i--) {
+                for(float i = 20; i > player.transform.position.y * ore.rarity; i--) {
                     Instantiate(ore.oreObject, new Vector3(transform.position.x + Random.Range(xSpawnRange.x, xSpawnRange.y), transform.position.y + Random.Range(ySpawnRange.x, ySpawnRange.y)), Quaternion.identity);
                 }
             }

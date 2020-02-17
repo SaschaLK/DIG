@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Iron
-  - Gold
   - OreStoreTextValue
   - Pouch
+  - Gold
+  - Iron
   layers:
   - Default
   - TransparentFX
