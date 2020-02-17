@@ -19,7 +19,7 @@ public class GameManagerBehaviour : MonoBehaviour {
         foreach(Slider slider in powerSliders) {
             slider.gameObject.SetActive(false);
         }
-        GasBehaviour.instance.isDigging = false;
+        MinerGasController.instance.isDigging = false;
         MinerController.instance.isDigging = false;
 
     }
@@ -27,7 +27,7 @@ public class GameManagerBehaviour : MonoBehaviour {
     public void StartDig() {
         ChangeSliderInteractable();
         shopPanel.SetActive(false);
-        GasBehaviour.instance.isDigging = true;
+        MinerGasController.instance.isDigging = true;
         MinerController.instance.isDigging = true;
     }
 

@@ -11,7 +11,7 @@ public class GasBehaviour : MonoBehaviour {
 
     [HideInInspector]
     public float gasComsumptionRate;
-    [HideInInspector]
+    //[HideInInspector]
     public bool isDigging;
 
     private Slider slider;

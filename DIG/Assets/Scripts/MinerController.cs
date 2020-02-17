@@ -45,7 +45,7 @@ public class MinerController : MonoBehaviour {
         if (isDigging) {
             MoveMinerDown();
         }
-        if(gasConsumption != 0) {
+        if (gasConsumption != 0) {
             ConsumeGas();
         }
     }
@@ -68,7 +68,7 @@ public class MinerController : MonoBehaviour {
     }
 
     private void ConsumeGas() {
-        GasBehaviour.instance.gasComsumptionRate = gasConsumption;
+        MinerGasController.instance.ChangeGasConsumption(gasConsumption);
     }
 
     public void SetRightPower(float power) {

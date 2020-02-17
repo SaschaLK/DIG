@@ -5,7 +5,7 @@ using UnityEngine;
 public class OreBehaviour : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         string oreName = name.Substring(0, name.Length - 7);
-        PouchBehaviour.instance.AddOre(oreName);
+        PlayerPrefs.SetInt(oreName, PlayerPrefs.GetInt(oreName) + 1);
         gameObject.SetActive(false);
     }
 }

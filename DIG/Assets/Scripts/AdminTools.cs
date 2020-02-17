@@ -5,5 +5,6 @@ using UnityEngine;
 public class AdminTools : MonoBehaviour {
     public void ClearOres() {
         PlayerPrefs.DeleteAll();
+        StoreController.instance.WriteStoreHome();
     }
 }
