@@ -45,5 +45,18 @@ public class StoreController : MonoBehaviour {
         }
         inventoryText.text = text;
     }
+
+    public void SelectShopHome() {
+        storeHome.SetActive(true);
+        storeHullUpgrades.SetActive(false);
+        storeGasUpgrades.SetActive(false);
+        storeEngineUpgrades.SetActive(false);
+        storeDrillUpgrades.SetActive(false);
+    }
+
+    public void SelectUpgradePanel(GameObject panel) {
+        storeHome.SetActive(false);
+        panel.SetActive(true);
+    }
 }
 
