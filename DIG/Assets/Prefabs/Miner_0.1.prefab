@@ -248,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662823380205088}
   - component: {fileID: 114695997917842270}
+  - component: {fileID: 1375375432}
   m_Layer: 0
   m_Name: Miner_0.1
   m_TagString: Untagged
@@ -292,9 +293,25 @@ MonoBehaviour:
   horizontalMsAmplifier: 5
   verticalMsAmplifier: 5
   horizontalToVerticalImpact: 2
+  minerSprite: {fileID: 1536096317}
   isDigging: 0
   rightPowerSliderInput: 0
   leftPowerSliderInput: 0
+--- !u!114 &1375375432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392915022643860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8730d77ddfc71c5469508fdb2f8de03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gasSlider: {fileID: 0}
+  baseGasConsumption: 0.1
+  isDigging: 0
 --- !u!1 &1504849657234244
 GameObject:
   m_ObjectHideFlags: 0

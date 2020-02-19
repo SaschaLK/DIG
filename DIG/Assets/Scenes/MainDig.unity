@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 617dae08cc7844b41ae199859ed883bd, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1583,6 +1583,7 @@ GameObject:
   - component: {fileID: 632419589}
   - component: {fileID: 632419592}
   - component: {fileID: 632419590}
+  - component: {fileID: 632419593}
   - component: {fileID: 632419591}
   m_Layer: 0
   m_Name: MapGenerator
@@ -1676,6 +1677,19 @@ MonoBehaviour:
     rarity: 0.3
     minDepth: -50
     maxDepth: -999
+--- !u!114 &632419593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632419588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183456dc9d66a4841acc38151dbed742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgRow: {fileID: 2255417370188231554, guid: cfad47662da7ed2428f06162c1f1130e, type: 3}
 --- !u!1 &731590820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,27 +3017,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346031571}
   m_CullTransparentMesh: 0
---- !u!1 &1375375430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1392915022643860, guid: fd8eb4cd1563a744687055b9adec737f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809965381}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1375375432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375375430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8730d77ddfc71c5469508fdb2f8de03e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gasSlider: {fileID: 1439470102}
-  baseGasConsumption: 0.1
-  isDigging: 0
 --- !u!1 &1378215875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,12 +3220,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &1536096317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1536096317, guid: fd8eb4cd1563a744687055b9adec737f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809965381}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1568584149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,6 +3836,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1375375432, guid: fd8eb4cd1563a744687055b9adec737f, type: 3}
+      propertyPath: gasSlider
+      value: 
+      objectReference: {fileID: 1439470102}
     - target: {fileID: 1392915022643860, guid: fd8eb4cd1563a744687055b9adec737f, type: 3}
       propertyPath: m_Name
       value: Miner_0.1
@@ -3907,11 +3898,6 @@ PrefabInstance:
       propertyPath: leftSlider
       value: 
       objectReference: {fileID: 1109786723}
-    - target: {fileID: 114695997917842270, guid: fd8eb4cd1563a744687055b9adec737f,
-        type: 3}
-      propertyPath: minerSprite
-      value: 
-      objectReference: {fileID: 1536096317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8eb4cd1563a744687055b9adec737f, type: 3}
 --- !u!1 &1846231236
