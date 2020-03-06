@@ -30,8 +30,19 @@ public class MinerGasController : MonoBehaviour {
         gasSlider.value += gasChange;
     }
 
+    //GasConsumption for sliders;
     public void ChangeGasConsumption(float consumption) {
         gasConsumption = consumption;
+    }
+
+    //Continuous gas consumption
+    public void AddBaseGasConsumption(float consumption) {
+        baseGasConsumption += consumption;
+    }
+
+    public void AddTankSize(float tank) {
+        gasSlider.maxValue += tank;
+        gasSlider.value = gasSlider.maxValue;
     }
 
 }
