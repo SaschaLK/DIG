@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EquipBehaviour : MonoBehaviour {
     private Toggle toggle;
+    public Text equipText;
 
     private void Awake() {
         toggle = GetComponent<Toggle>();
@@ -18,6 +19,10 @@ public class EquipBehaviour : MonoBehaviour {
             MinerGasController.instance.AddTankSize(-tank);
         }
 
+    }
+
+    public void ChangeTextVisibility() {
+        equipText.gameObject.SetActive(!equipText.gameObject.activeSelf);
     }
 
 }

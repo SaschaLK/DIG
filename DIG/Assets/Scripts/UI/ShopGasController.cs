@@ -5,19 +5,11 @@ using UnityEngine.UI;
 using System;
 
 public class ShopGasController : MonoBehaviour {
-    //[Serializable]
-    //public struct UnlockButton {
-    //    public Button button;
-    //    public Toggle toggle;
-    //    [Serializable]
-    //    public struct UnlockValue {
-    //        public string name;
-    //        public int value;
-    //    }
-    //    public List<UnlockValue> unlockValues;
-    //}
 
-    //public List<UnlockButton> buttons = new List<UnlockButton>();
+    public List<GameObject> tanks = new List<GameObject>();
+    public Button next;
+    public Button previous;
+    private int currentTank = 0;
 
     public Button tier1Unlock;
     public Toggle tier1Equip;
@@ -117,8 +109,23 @@ public class ShopGasController : MonoBehaviour {
         }
     }
 
-    public void SetEquip() {
+    public void ChangeShownTank(int factor) {
+        tanks[currentTank].SetActive(false);
+        currentTank += factor;
+        tanks[currentTank].SetActive(true);
 
+        if (currentTank == 0) {
+            previous.interactable = false;
+        }
+        else {
+            previous.interactable = true;
+        }
+
+        if(currentTank == tanks.Count - 1) {
+            next.interactable = false;
+        }
+        else {
+            next.interactable = true;
+        }
     }
-
 }
