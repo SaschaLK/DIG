@@ -8,6 +8,8 @@ public class MinerGasController : MonoBehaviour {
 
     [SerializeField] private Slider gasSlider;
     [SerializeField] private float baseGasConsumption;
+    [SerializeField] private GameObject fgSlider;
+    [SerializeField] private GameObject bgSlider;
     private float gasConsumption;
 
     public bool isDigging;

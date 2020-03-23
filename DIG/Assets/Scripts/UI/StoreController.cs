@@ -31,7 +31,8 @@ public class StoreController : MonoBehaviour {
     }
 
     public void UpdateInventory() {
-        foreach(string key in inventory.Keys) {
+        List<string> keys = new List<string>(inventory.Keys);
+        foreach (string key in keys) {
             inventory[key] = PlayerPrefs.GetInt(key);
         }
     }
