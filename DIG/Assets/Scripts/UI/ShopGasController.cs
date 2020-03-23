@@ -11,12 +11,31 @@ public class ShopGasController : MonoBehaviour {
     public Button previous;
     private int currentTank = 0;
 
+    [Serializable]
+    public struct Price {
+        [SerializeField] public int iron;
+        [SerializeField] public int gold;
+        [SerializeField] public int diamond;
+        [SerializeField] public int endCrystal;
+    }
+
+    [Header("Tier 1")]
+    public Price priceT1;
     public Button tier1Unlock;
     public Toggle tier1Equip;
+
+    [Header("Tier 2")]
+    public Price priceT2;
     public Button tier2Unlock;
     public Toggle tier2Equip;
+
+    [Header("Tier 3")]
+    public Price priceT3;
     public Button tier3Unlock;
     public Toggle tier3Equip;
+
+    [Header("Tier 4")]
+    public Price priceT4;
     public Button tier4Unlock;
     public Toggle tier4Equip;
 
@@ -24,13 +43,24 @@ public class ShopGasController : MonoBehaviour {
         SetPage();
     }
 
+    private bool CheckPrices(Price price) {
+        if(PlayerPrefs.GetInt("Iron") >= price.iron && PlayerPrefs.GetInt("Gold") >= price.gold && PlayerPrefs.GetInt("Diamond") >= price.diamond && PlayerPrefs.GetInt("EndCrystal") >= price.endCrystal) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public void SetPage() {
+        //Check if already unlocked
         if (PlayerPrefs.GetInt("gt1") == 1) {
             tier1Unlock.gameObject.SetActive(false);
             tier1Equip.gameObject.SetActive(true);
         }
         else {
-            if (PlayerPrefs.GetInt("Iron") > 20) {
+            //Unlock button interactable via price
+            if (CheckPrices(priceT1)) {
                 tier1Unlock.interactable = true;
             }
             else {
@@ -43,7 +73,7 @@ public class ShopGasController : MonoBehaviour {
             tier2Equip.gameObject.SetActive(true);
         }
         else {
-            if (PlayerPrefs.GetInt("Gold") > 20) {
+            if (CheckPrices(priceT2)) {
                 tier2Unlock.interactable = true;
             }
             else {
@@ -56,7 +86,7 @@ public class ShopGasController : MonoBehaviour {
             tier3Equip.gameObject.SetActive(true);
         }
         else {
-            if (PlayerPrefs.GetInt("Diamond") > 20) {
+            if (CheckPrices(priceT3)) {
                 tier3Unlock.interactable = true;
             }
             else {
@@ -69,16 +99,13 @@ public class ShopGasController : MonoBehaviour {
             tier4Equip.gameObject.SetActive(true);
         }
         else {
-            if (PlayerPrefs.GetInt("EndCrystal") > 20) {
+            if (CheckPrices(priceT4)) {
                 tier4Unlock.interactable = true;
             }
             else {
                 tier4Unlock.interactable = false;
             }
         }
-
-
-
     }
 
     public void HideUnlock(string tier) {
@@ -129,3 +156,5 @@ public class ShopGasController : MonoBehaviour {
         }
     }
 }
+
+
