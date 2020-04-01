@@ -45,6 +45,14 @@ public class MinerGasController : MonoBehaviour {
     public void AddTankSize(float tank) {
         gasSlider.maxValue += tank;
         gasSlider.value = gasSlider.maxValue;
+
+        if(tank > 0) {
+            fgSlider.GetComponent<RectTransform>().anchorMax = new Vector2(tank / 10, 1);
+        }
+        else {
+            fgSlider.GetComponent<RectTransform>().anchorMax = new Vector2(0.05f, 1);
+        }
+        //bgSlider.GetComponent<RectTransform>().anchorMax = new Vector2(tank / 10, 1);
     }
 
 }
